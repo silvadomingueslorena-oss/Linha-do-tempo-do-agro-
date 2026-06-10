@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo - O Avanço do Agro Sustentável</title>
+    <style>
+        :root {
+            --verde-escuro: #1B5E20;
+            --verde-claro: #4CAF50;
+            --dourado: #FBC02D;
+            --fundo: #F4F9F4;
+            --texto: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            color: var(--verde-escuro);
+            margin-bottom: 40px;
+        }
+
+        /* Estrutura da Linha do Tempo */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* A linha vertical verde no centro */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--verde-escuro);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        /* Containers dos blocos de texto */
+        .box-tempo {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        /* As bolinhas da linha do tempo */
+        .box-tempo::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--dourado);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: background-color 0.3s;
+        }
+
+        /* Alinhamento dos blocos (Esquerda e Direita) */
+        .esquerda {
+            left: 0;
+            text-align: right;
+        }
+
+        .direita {
+            left: 50%;
+        }
+
+        /* Ajuste das bolinhas para o lado direito */
+        .direita::after {
+            left: -10px;
+        }
+
+        /* Caixas de conteúdo */
+        .conteudo {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--verde-claro);
+        }
+
+        .conteudo h3 {
+            margin-top: 0;
+            color: var(--verde-escuro);
+        }
+
+        .ano {
+            display: inline-block;
+            background-color: var(--dourado);
+            color: #000;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* Efeito ao passar o mouse */
+        .box-tempo:hover .conteudo {
+            transform: scale(1.02);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .box-tempo:hover::after {
+            background-color: var(--verde-claro);
+        }
+
+        /* Responsividade para celulares (tudo vira uma coluna só) */
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .box-tempo {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left;
+            }
+            .box-tempo::after {
+                left: 21px;
+            }
+            .direita {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="titulo-secao">
+        <h2>Linha do Tempo: A Evolução do Agro Sustentável</h2>
+        <p>Veja como a produção e o respeito ao meio ambiente se uniram ao longo dos anos.</p>
+    </div>
+
+    <div class="timeline">
+
+        <div class="box-tempo esquerda">
+            <div class="conteudo">
+                <span class="ano">Passado (Anos 70/80)</span>
+                <h3>A Expansão e Desafios</h3>
+                <p>O foco principal era expandir a produção para alimentar uma população crescente. As técnicas ainda eram muito dependentes de forte impacto no solo, revolvimento constante da terra e uso massivo de recursos sem o foco em conservação que temos hoje.</p>
+            </div>
+        </div>
+
+        <div class="box-tempo direita">
+            <div class="conteudo">
+                <span class="ano">Anos 90 / 2000</span>
+                <h3>Chegam as Práticas Verdes</h3>
+                <p>O Brasil começa a adotar em larga escala o <strong>Sistema de Plantio Direto</strong> (evitando a erosão do solo) e surgem leis ambientais mais rígidas. O produtor descobre que preservar a água e a floresta protege a sua própria colheita.</p>
+            </div>
+        </div>
+
+        <div class="box-tempo esquerda">
+            <div class="conteudo">
+                <span class="ano">Presente (2026)</span>
+                <h3>Agro Forte e Tecnologia de Precisão</h3>
+                <p>Hoje, a tecnologia é a maior aliada da ecologia. Drones mapeiam lavouras, sensores controlam a água gota a gota e sistemas como a ILPF (Integração Lavoura-Pecuária-Floresta) fazem a mesma fazenda produzir grãos, carne e árvores ao mesmo tempo.</p>
+            </div>
+        </div>
+
+        <div class="box-tempo direita">
+            <div class="conteudo">
+                <span class="ano">O Futuro</span>
+                <h3>Carbono Zero e Sustentabilidade Total</h3>
+                <p>O futuro do agro é o equilíbrio perfeito. Propriedades que produzem alimento enquanto capturam gases poluentes da atmosfera, uso exclusivo de bioinsumos (defensivos naturais) e rastreabilidade total, onde o consumidor sabe exatamente como o alimento protegeu a natureza.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
